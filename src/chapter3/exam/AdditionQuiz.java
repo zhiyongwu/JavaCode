@@ -11,6 +11,6 @@ public class AdditionQuiz {
 //            System.out.println(System.currentTimeMillis()%10);
 //            Thread.sleep(new Random(47).nextInt(100));
 //        }
-        int number1 = System.currentTimeMillis()%
+        int number1 = (int)System.currentTimeMillis()%10;
     }
 }
