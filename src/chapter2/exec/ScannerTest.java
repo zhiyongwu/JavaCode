@@ -12,6 +12,7 @@ public class ScannerTest {
         Scanner s = new Scanner(new File("C:/Users/Admin/Desktop/11"));
         while (s.hasNextLine()){
             System.out.println(s.nextLine());
+
         }
     }
 }
