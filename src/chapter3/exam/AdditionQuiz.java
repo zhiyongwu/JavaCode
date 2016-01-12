@@ -13,10 +13,10 @@ public class AdditionQuiz {
 //            Thread.sleep(new Random(47).nextInt(100));
 //        }
         int number2 = (int)System.currentTimeMillis()/7%10;
-        System.out.println(number1);
-        System.out.printf("please enter the answer of %d + %d=" ,number1,number2);
-        int answer = s.nextInt();
-        System.out.println(number1 + "+" + number2 + "=" + (number1 + number2 == answer?"correct":"false"));
+//        System.out.println(number1);
+//        System.out.printf("please enter the answer of %d + %d=" ,number1,number2);
+//        int answer = s.nextInt();
+//        System.out.println(number1 + "+" + number2 + "=" + (number1 + number2 == answer?"correct":"false"));
     }
 
 }
