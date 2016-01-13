@@ -50,14 +50,14 @@ public class Exercise {
             System.out.println("score and name:");
             score = Double.valueOf(SCANNER.next());
             name = SCANNER.next();
-            if(score1 > score){
-                name = name1;
-                score = score1;
+            if(score1 < score){
+                name1 = name;
+                score1 = score;
             }
             count++;
         }while (count < student_count-1);
 
-        System.out.println(name + score);
+        System.out.println(name1 + score1);
     }
 
     public static void main(String[] args) {
