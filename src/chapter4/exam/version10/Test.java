@@ -28,12 +28,14 @@ public class Test {
 //        System.out.println(Math.asin(Math.sin(Math.PI/6)));
 //        System.out.println(Math.sin(Math.asin(Math.PI/6)));
 //        System.out.println('\u6B22');
-        String s = "this is test";
-        String s1 = "\n\rHAHA";
-
-        System.out.println(s.charAt(0));
-        s1 = s1.concat(s);
-        System.out.println(s1.toLowerCase().trim().startsWith("haha"));
-        System.out.println(s1.endsWith("st"));
+//        String s = "this is test";
+//        String s1 = "\n\rHAHA";
+//
+//        System.out.println(s.charAt(0));
+//        s1 = s1.concat(s);
+//        System.out.println(s1.toLowerCase().trim().startsWith("haha"));
+//        System.out.println(s1.endsWith("st"));
+        System.out.printf("%4.2f",16.6666666);
+        System.out.printf("%-25s","this is test");
     }
 }
