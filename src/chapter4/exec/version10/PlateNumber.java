@@ -13,6 +13,5 @@ public class PlateNumber {
         char ch6 = (char)((int)(48 + Math.random() * 10));
         char ch7 = (char)((int)(48 + Math.random() * 10));
         System.out.println(ch1+""+ch2+""+ch3+""+ch4+""+ch5+""+ch6+""+ch7);
-
     }
 }
