@@ -26,8 +26,8 @@ public class RandomCHaracter {
 class TestRandomCharacter{
     public static void main(String[] args) {
         for (int i = 0; i < 1000; i++) {
-            char ch = Chapter6.exam.RandomCHaracter.getRandomLowerCaseLetter();
-            System.out.print(ch);
+//            char ch = Chapter6.exam.RandomCHaracter.getRandomLowerCaseLetter();
+//            System.out.print(ch);
         }
     }
 }

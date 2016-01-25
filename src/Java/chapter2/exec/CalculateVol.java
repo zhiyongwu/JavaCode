@@ -2,7 +2,7 @@ package Java.chapter2.exec;
 
 import java.util.Scanner;
 
-import static chapter2.exec.CalculateVol.method2;
+//import static chapter2.exec.CalculateVol.method2;
 
 /**
  * Created by Administrator on 2015/12/30.
@@ -39,6 +39,6 @@ public class CalculateVol {
 
 class Test{
     public static void main(String[] args) {
-        method2();
+//        method2();
     }
 }
