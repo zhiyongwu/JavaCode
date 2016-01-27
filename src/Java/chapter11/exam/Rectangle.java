@@ -3,7 +3,7 @@ package Java.chapter11.exam;
 /**
  * Created by Administrator on 2016/1/27.
  */
-public class Rectangle extends GeometricObject1{
+public class Rectangle extends GeometricObject1 implements Comparable{
     private double width;
     private double length;
 
@@ -45,4 +45,13 @@ public class Rectangle extends GeometricObject1{
     public double getPerimeter(){
         return 2*(width + length);
     }
+
+    @Override
+    public int compareTo(Object o) {
+        if(this.getArea() > ((Rectangle)o).getArea()){
+            return 1;
+        }else if(this.getArea() < ((Rectangle)o).getArea()) return -1;
+        else return 0;
+    }
+
 }
