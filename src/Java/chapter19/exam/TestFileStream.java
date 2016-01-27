@@ -12,6 +12,7 @@ public class TestFileStream {
         for (int i = 0; i < 300; i++) {
             output.write(i);
         }
+
         output.close();
 
         FileInputStream input = new FileInputStream("temp.dat");
