@@ -11,7 +11,7 @@ for parent, dirnames, filenames in os.walk(rootdir):
     	if 'java' in filename:
         	file = open(filename,'r')
        		for line in file.readlines():
-       			if '//' not in line and '/*' not in line and '*/' not in line and len(line) > 1:
+       			if '//' not in line and '/*' not in line and '*/' not in line and line != chr(10) and line != '\n' and line != '':
         			count += 1
 print(count)
 
