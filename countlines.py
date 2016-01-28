@@ -1,8 +1,21 @@
 import os
 import os.path
+
 rootdir = "."
-for parent,dirnames,filenames in os.walk(rootdir):
-	for dirname in dirnames:
-		print(dirname)
-	for filename in filenames:
-		print(parent + filename)
+count = 0
+for parent, dirnames, filenames in os.walk(rootdir):
+    # for dirname in dirnames:
+    #     print(dirname)
+    for filename in filenames:
+    	filename = parent+ '/' + filename
+    	if 'java' in filename:
+        	file = open(filename,'r')
+       		for line in file.readlines():
+       			if '//' not in line and '/*' not in line and '*/' not in line and len(line) > 1:
+        			count += 1
+print(count)
+
+
+# file = open('./src/Java/chapter1/exam/Welcome.java','r')
+# for line in file.readlines():
+# 	print(line)
