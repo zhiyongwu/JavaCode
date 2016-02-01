@@ -2,6 +2,8 @@ package Cralwer.spider;
 
 import Cralwer.bean.SeedUrl;
 import Cralwer.config.Config;
+import Cralwer.helper.DatabaseHelper;
+import Cralwer.util.BeanUtil;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -15,12 +17,10 @@ import java.io.IOException;
  */
 public class BaseSpider implements Spider {
 
-    private BaseSpider baseSpider = new BaseSpider();
-
 
     public static void main(String[] args) {
         BaseSpider spider = new BaseSpider();
-        System.out.println(spider.docCrawler("http://www.zhihu.com"));
+        spider.docParser("http://www.zhihu.com");
     }
 
 
@@ -29,7 +29,6 @@ public class BaseSpider implements Spider {
         Document doc = null;
         try {
             doc = Jsoup.connect(url).timeout(Config.TIME_OUT).userAgent(Config.USER_AGENT_SPIDER).get();
-            System.out.println(doc);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -38,6 +37,7 @@ public class BaseSpider implements Spider {
 
     @Override
     public void docParser(String url) {
+        BaseSpider baseSpider = new BaseSpider();
         Document doc = baseSpider.docCrawler(url);
         Elements eles = doc.select("div[class=topics]").select("a");
         for (Element ele: eles
@@ -45,7 +45,9 @@ public class BaseSpider implements Spider {
             SeedUrl seedUrl = new SeedUrl();
             seedUrl.setLink(ele.attr("a"));
             seedUrl.setName(ele.text());
-            
+            DatabaseHelper.insertEntity(SeedUrl.class, BeanUtil.transBean2Map(seedUrl));
         }
     }
+
+
 }

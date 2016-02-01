@@ -5,6 +5,15 @@ package Cralwer.bean;
  */
 public class SeedUrl {
     private String link;
+
+    public SeedUrl() {
+    }
+
+    public SeedUrl(String link, String name) {
+        this.link = link;
+        this.name = name;
+    }
+
     private String name;
 
     @Override
