@@ -10,7 +10,7 @@ import java.beans.BeanInfo;
 import java.beans.IntrospectionException;
 import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
-import java.util.Collection;
+import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,36 +18,61 @@ import java.util.Map;
  * 操作Bean的类
  */
 public class BeanUtil {
-    public static Map<String,Object> transBean2Map(Object obj){
-        if(obj == null){
+
+    /**
+     * Bean转map
+     *
+     * @param obj
+     * @return
+     */
+    public static Map<String, Object> transBean2Map(Object obj) {
+        if (obj == null) {
             return null;
         }
-        Map<String,Object> map = new HashMap<>();
+        Map<String, Object> map = new HashMap<>();
         try {
             BeanInfo beanInfo = Introspector.getBeanInfo(obj.getClass());
             PropertyDescriptor[] propertyDescriptors = beanInfo.getPropertyDescriptors();
-            for (PropertyDescriptor property:propertyDescriptors
-                 ) {
+            for (PropertyDescriptor property : propertyDescriptors
+                    ) {
 
                 String key = property.getName();
-                Object value = property.getValue(key);
-                if(!"class".equals(key)){
-                    map.put(key,value);
+                Method getter = property.getReadMethod();
+                if (!"class".equals(key)) {
+                    map.put(key, getter.invoke(obj));
                 }
 
             }
-        } catch (IntrospectionException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return map;
     }
 
-    public static void main(String[] args) {
-        Map<String,Object> map = transBean2Map(new SeedUrl("name","url"));
-        for(String key:map.keySet()){
-            System.out.println(key+"  " + map.get(key));
+    /**
+     * map转bean
+     *
+     * @param map
+     * @param obj
+     */
+    public static void transMap2Bean(Map<String, Object> map, Object obj) {
+        try {
+            BeanInfo beanInfo = Introspector.getBeanInfo(obj.getClass());
+            PropertyDescriptor[] propertyDescriptors = beanInfo.getPropertyDescriptors();
+            for (PropertyDescriptor property : propertyDescriptors
+                    ) {
+                String key = property.getName();
+                if (map.containsKey(key)) {
+                    Object value = map.get(key);
+                    Method setter = property.getWriteMethod();
+                    setter.invoke(obj, value);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Map to Bean Error" + e);
         }
+        return;
     }
 
-    //TODO   MAP2Bean
+
 }

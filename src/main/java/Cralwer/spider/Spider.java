@@ -7,5 +7,6 @@ import org.jsoup.nodes.Document;
  */
 public interface Spider {
     Document docCrawler(String url);
+
     void docParser(String url);
 }

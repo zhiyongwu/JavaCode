@@ -24,6 +24,7 @@ public class SeedUrl {
                 '}';
     }
 
+
     public String getLink() {
         return link;
     }

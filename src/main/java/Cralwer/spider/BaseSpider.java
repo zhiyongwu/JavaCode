@@ -40,10 +40,11 @@ public class BaseSpider implements Spider {
         BaseSpider baseSpider = new BaseSpider();
         Document doc = baseSpider.docCrawler(url);
         Elements eles = doc.select("div[class=topics]").select("a");
-        for (Element ele: eles
-             ) {
+        for (Element ele : eles
+                ) {
             SeedUrl seedUrl = new SeedUrl();
-            seedUrl.setLink(ele.attr("a"));
+            seedUrl.setLink(ele.attr("href"));
+
             seedUrl.setName(ele.text());
             DatabaseHelper.insertEntity(SeedUrl.class, BeanUtil.transBean2Map(seedUrl));
         }
