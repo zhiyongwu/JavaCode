@@ -11,6 +11,10 @@ import java.beans.IntrospectionException;
 import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.Method;
+<<<<<<< Updated upstream
+=======
+import java.util.Collection;
+>>>>>>> Stashed changes
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,8 +42,14 @@ public class BeanUtil {
 
                 String key = property.getName();
                 Method getter = property.getReadMethod();
+<<<<<<< Updated upstream
                 if (!"class".equals(key)) {
                     map.put(key, getter.invoke(obj));
+=======
+                if(!"class".equals(key)){
+                    Object value = getter.invoke(obj);
+                    map.put(key,value);
+>>>>>>> Stashed changes
                 }
 
             }

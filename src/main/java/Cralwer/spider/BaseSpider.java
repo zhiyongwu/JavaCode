@@ -44,7 +44,11 @@ public class BaseSpider implements Spider {
                 ) {
             SeedUrl seedUrl = new SeedUrl();
             seedUrl.setLink(ele.attr("href"));
+<<<<<<< Updated upstream
 
+=======
+            System.out.println(ele.attr("href"));
+>>>>>>> Stashed changes
             seedUrl.setName(ele.text());
             DatabaseHelper.insertEntity(SeedUrl.class, BeanUtil.transBean2Map(seedUrl));
         }
