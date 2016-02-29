@@ -4,17 +4,10 @@ package Cralwer.util;
  * Created by Administrator on 2016/2/1.
  */
 
-import Cralwer.bean.SeedUrl;
-
 import java.beans.BeanInfo;
-import java.beans.IntrospectionException;
 import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.Method;
-<<<<<<< Updated upstream
-=======
-import java.util.Collection;
->>>>>>> Stashed changes
 import java.util.HashMap;
 import java.util.Map;
 
@@ -42,16 +35,15 @@ public class BeanUtil {
 
                 String key = property.getName();
                 Method getter = property.getReadMethod();
-<<<<<<< Updated upstream
+
                 if (!"class".equals(key)) {
                     map.put(key, getter.invoke(obj));
-=======
-                if(!"class".equals(key)){
-                    Object value = getter.invoke(obj);
-                    map.put(key,value);
->>>>>>> Stashed changes
-                }
 
+                    if (!"class".equals(key)) {
+                        Object value = getter.invoke(obj);
+                        map.put(key, value);
+                    }
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -65,6 +57,7 @@ public class BeanUtil {
      * @param map
      * @param obj
      */
+
     public static void transMap2Bean(Map<String, Object> map, Object obj) {
         try {
             BeanInfo beanInfo = Introspector.getBeanInfo(obj.getClass());
