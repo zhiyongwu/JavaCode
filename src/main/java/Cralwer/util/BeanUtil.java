@@ -8,10 +8,7 @@ import java.beans.BeanInfo;
 import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.Method;
-<<<<<<< HEAD
-import java.util.Collection;
-=======
->>>>>>> origin/dev
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -39,18 +36,18 @@ public class BeanUtil {
 
                 String key = property.getName();
                 Method getter = property.getReadMethod();
-<<<<<<< HEAD
-                if (!"class".equals(key)) {
-                    map.put(key, getter.invoke(obj));
-=======
 
                 if (!"class".equals(key)) {
                     map.put(key, getter.invoke(obj));
 
->>>>>>> origin/dev
+
                     if (!"class".equals(key)) {
-                        Object value = getter.invoke(obj);
-                        map.put(key, value);
+                        map.put(key, getter.invoke(obj));
+
+                        if (!"class".equals(key)) {
+                            Object value = getter.invoke(obj);
+                            map.put(key, value);
+                        }
                     }
                 }
             }

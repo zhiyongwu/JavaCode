@@ -44,10 +44,7 @@ public class BaseSpider implements Spider {
                 ) {
             SeedUrl seedUrl = new SeedUrl();
             seedUrl.setLink(ele.attr("href"));
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/dev
             System.out.println(ele.attr("href"));
             seedUrl.setName(ele.text());
             DatabaseHelper.insertEntity(SeedUrl.class, BeanUtil.transBean2Map(seedUrl));
