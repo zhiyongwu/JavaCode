@@ -36,21 +36,14 @@ public class BeanUtil {
 
                 String key = property.getName();
                 Method getter = property.getReadMethod();
-
-                if (!"class".equals(key)) {
-                    map.put(key, getter.invoke(obj));
-
-
                     if (!"class".equals(key)) {
                         map.put(key, getter.invoke(obj));
-
                         if (!"class".equals(key)) {
                             Object value = getter.invoke(obj);
                             map.put(key, value);
                         }
                     }
                 }
-            }
         } catch (Exception e) {
             e.printStackTrace();
         }
