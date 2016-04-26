@@ -5,7 +5,6 @@ import com.gargoylesoftware.htmlunit.CookieManager;
 import com.gargoylesoftware.htmlunit.NicelyResynchronizingAjaxController;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
-import com.gargoylesoftware.htmlunit.javascript.JavaScriptEngine;
 import com.gargoylesoftware.htmlunit.util.Cookie;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -51,7 +50,7 @@ public class HeiBanCrawler implements Spider {
         Document doc = this.docCrawler(url);
         String link = "http://www.heibanke.com" + doc.select("p").select("a[class=btn btn-primary]").attr("href");
 
-        Spider s = new Spider(){
+        Spider s = new Spider() {
 
             @Override
             public Document docCrawler(String url) {
@@ -59,10 +58,10 @@ public class HeiBanCrawler implements Spider {
                 Document doc = null;
                 try {
                     WebClient client = new WebClient(BrowserVersion.CHROME);
-                    CookieManager cookieMan ;
+                    CookieManager cookieMan;
                     cookieMan = client.getCookieManager();
-                    cookieMan.addCookie(new Cookie("http://www.heibanke.com","sessionid","3phv283e9jk5ktv4utqa6nqrg868jc0o"));
-                    cookieMan.addCookie(new Cookie("http://www.heibanke.com","csrftoken","0omdhEb47vLvYUqL8t28iqQBOPdGaHEX"));
+                    cookieMan.addCookie(new Cookie("http://www.heibanke.com", "sessionid", "3phv283e9jk5ktv4utqa6nqrg868jc0o"));
+                    cookieMan.addCookie(new Cookie("http://www.heibanke.com", "csrftoken", "0omdhEb47vLvYUqL8t28iqQBOPdGaHEX"));
                     cookieMan.setCookiesEnabled(true);
                     client.setAjaxController(new NicelyResynchronizingAjaxController());
                     client.getOptions().setCssEnabled(false);
