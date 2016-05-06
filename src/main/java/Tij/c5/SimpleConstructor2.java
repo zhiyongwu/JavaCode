@@ -12,7 +12,11 @@ public class SimpleConstructor2 {
 }
 
 class Rock2{
+    public enum E{
+        A,B,C
+    }
     Rock2(int i){
         System.out.println("ROck2 " + i);
+        System.out.println(Rock2.E.A.getClass());
     }
 }
