@@ -3,10 +3,5 @@
        xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
-
-    <import resource="demo.xml"/>
-    <bean id="person" class="springdemo.Person">
-        <property name="name" value="xiaobao"/>
-        <property name="age" value="12"/>
-    </bean>
+    <bean id="car" class="mooc.reflect.Car"/>
 </beans>
