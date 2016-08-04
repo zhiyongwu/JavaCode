@@ -1,0 +1,84 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:component-scan base-package="spring.hello.bean"/>
+    <import resource="Context-Output.xml"/>
+    <bean id="helloBean" class="spring.hello.impl.HelloWorldImpl">
+        <property name="name" value="Zhiyong"/>
+    </bean>
+    <bean id="outputHelper" class="spring.hello.bean.OutputHelper">
+        <property name="outputGenerator">
+            <ref bean="csvOutPutGenerator"/>
+        </property>
+    </bean>
+
+    <bean id="outputHelperWithConDI" class="spring.hello.bean.OutputHelperWithConDI">
+        <constructor-arg>
+            <bean class="spring.hello.bean.JsonOutputGenerator"/>
+        </constructor-arg>
+    </bean>
+    <!--<bean id="fileNameGenerator" class="spring.hello.bean.FileNameGenerator">-->
+    <!--<property name="name" value="filename"/>-->
+    <!--<property name="type" value="txt"/>-->
+    <!--</bean>-->
+    <!--<bean id="fileNameGenerator" class="spring.hello.bean.FileNameGenerator">-->
+    <!--<property name="type">-->
+    <!--<value>bin</value>-->
+    <!--</property>-->
+    <!--<property name="name">-->
+    <!--<value>gram</value>-->
+    <!--</property>-->
+    <!--</bean>-->
+    <bean id="fileNameGenerator" class="spring.hello.bean.FileNameGenerator" p:name="demo" p:type="java"/>
+    <!--<bean id="customer" class="spring.hello.bean.Customer">-->
+    <!--<property name="person">-->
+    <!--<bean class="spring.hello.bean.Person">-->
+    <!--<property name="address" value="24"/>-->
+    <!--<property name="age" value="1"/>-->
+    <!--<property name="name" value="name"/>-->
+    <!--</bean>-->
+    <!--</property>-->
+    <!--</bean>-->
+    <!--<bean id="customer" class="spring.hello.bean.Customer">-->
+    <!--<property name="person" ref="person"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="person" class="spring.hello.bean.Person">-->
+    <!--<property name="name" value="23"/>-->
+    <!--<property name="address" value="address"/>-->
+    <!--<property name="age" value="25"/>-->
+    <!--</bean>-->
+
+
+    <bean id="customer" class="spring.hello.bean.Customer">
+        <constructor-arg name="person">
+            <bean class="spring.hello.bean.Person">
+                <property name="name" value="12"/>
+                <property name="age" value="23"/>
+                <property name="address" value="address"/>
+            </bean>
+        </constructor-arg>
+    </bean>
+
+    <bean id="customerService" class="spring.hello.bean.CustomerService" scope="prototype"/>
+
+    <bean id="customerDemo" class="spring.hello.bean.CustomerDemo">
+        <property name="list">
+            <list>
+                <value>1</value>
+                <ref bean="person"/>
+                <bean class="spring.hello.bean.Person">
+                    <property name="address" value="12"/>
+                    <property name="age" value="23"/>
+                    <property name="name" value="11"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+</beans>
