@@ -14,8 +14,8 @@ import spring.hello.impl.HelloWorldImpl;
 @Import({CustomerConfig.class, ScheduleConfig.class})
 public class AppConfig {
 
-    @Bean(name = "helloBean")
-    public HelloWorld helloWorld() {
-        return new HelloWorldImpl();
-    }
+//    @Bean(name = "helloBean")
+//    public HelloWorld helloWorld() {
+//        return new HelloWorldImpl();
+//    }
 }

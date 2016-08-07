@@ -12,8 +12,8 @@ import spring.hello.bean.CustomerBo;
 @Configuration
 public class CustomerConfig {
 
-    @Bean(name = "customer")
-    public CustomerBo customerBo() {
-        return new CustomerBo();
-    }
+//    @Bean(name = "customer")
+//    public CustomerBo customerBo() {
+//        return new CustomerBo();
+//    }
 }

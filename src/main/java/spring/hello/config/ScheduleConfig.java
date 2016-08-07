@@ -11,8 +11,8 @@ import spring.hello.bean.ScheduleBo;
 @Configuration
 public class ScheduleConfig {
 
-    @Bean(name = "schedule")
-    public ScheduleBo scheduleBo() {
-        return new ScheduleBo();
-    }
+//    @Bean(name = "schedule")
+//    public ScheduleBo scheduleBo() {
+//        return new ScheduleBo();
+//    }
 }
