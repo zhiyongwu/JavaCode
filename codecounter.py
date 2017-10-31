@@ -23,7 +23,7 @@ def count_file(file:str):
                 if line.startswith('/*'):
                     comment_flag = True
                     continue
-                if line.endswith('*/'):
+                if line.endswith('*/') and comment_flag:
                     comment_flag = False
                     continue
                 if comment_flag:
