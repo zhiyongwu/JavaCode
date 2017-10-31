@@ -1,6 +1,7 @@
 import os,sys
 
-# file = 'C:/Users/wuzhiyong/IdeaProjects/RsvpBotServer/BotServiceServer/src/main/java/cn/rsvptech/rchat/dispatch/agents/huawei/sow/sow2/modulingroleplay/school'
+
+file = '.'
 
 args = sys.argv
 if len(args) == 1:
